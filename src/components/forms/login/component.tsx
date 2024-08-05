@@ -7,15 +7,13 @@ import { useTranslations } from "next-intl";
 
 import { Box, Stack } from "@mui/joy";
 
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Envelope, LockKey } from "@phosphor-icons/react";
 
 import { LoginSubmitAction } from "@/actions/auth";
 import { OutlinedButton, SolidButton } from "@/components/buttons";
 import { Title } from "@/components/headings";
-import { ProvidersIcon } from "@/components/icons";
+import { Icon, ProvidersIcon } from "@/components/icons";
 import { OutlinedInput, PasswordInput } from "@/components/inputs";
 import { Link } from "@/components/link";
 import { ErrorSnackbar } from "@/components/snackbars";
@@ -96,7 +94,7 @@ export function LoginForm() {
           control={control}
           error={errors.email && t(errors.email?.message)}
           placeholder={t(`${namespaceCommon}.emailFieldPlaceholder`)}
-          startDecorator={<FontAwesomeIcon icon={faEnvelope} />}
+          startDecorator={<Icon icon={Envelope} size={24} />}
         />
 
         <PasswordInput
@@ -105,7 +103,7 @@ export function LoginForm() {
           control={control}
           error={errors.password && t(errors.password?.message)}
           placeholder={t(`${namespaceCommon}.passwordFieldPlaceholder`)}
-          startDecorator={<FontAwesomeIcon icon={faLock} />}
+          startDecorator={<Icon icon={LockKey} size={24} />}
         />
 
         <Stack width="100%" alignItems="center">

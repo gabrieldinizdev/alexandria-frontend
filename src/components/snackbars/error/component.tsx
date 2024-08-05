@@ -2,8 +2,9 @@
 
 import { forwardRef, type ReactNode } from "react";
 
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Warning } from "@phosphor-icons/react";
+
+import { Icon } from "@/components/icons";
 
 import type { BaseSnackbarProps } from "../base";
 import { SoftSnackbar } from "../soft";
@@ -22,7 +23,7 @@ export const ErrorSnackbar = forwardRef<HTMLDivElement, ErrorSnackbarProps>(
           horizontal: "center",
           vertical: "top",
         }}
-        startDecorator={<FontAwesomeIcon icon={faTriangleExclamation} />}
+        startDecorator={<Icon icon={Warning} />}
         {...props}
         ref={ref}
       >
