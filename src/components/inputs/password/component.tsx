@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, memo, useMemo, useState } from "react";
 
 import { useTranslations } from "next-intl";
 
@@ -19,9 +19,18 @@ function withPasswordView(Component: typeof BaseInput) {
       const t = useTranslations("Shared.Common");
       const [showPassword, setShowPassword] = useState(false);
 
-      const tooltipMessage = showPassword ? "hidePassword" : "showPassword";
-      const inputType = showPassword ? "text" : "password";
-      const iconType = showPassword ? faEyeSlash : faEye;
+      const tooltipMessage = useMemo(
+        () => (showPassword ? "hidePassword" : "showPassword"),
+        [showPassword]
+      );
+      const inputType = useMemo(
+        () => (showPassword ? "text" : "password"),
+        [showPassword]
+      );
+      const iconType = useMemo(
+        () => (showPassword ? faEyeSlash : faEye),
+        [showPassword]
+      );
 
       return (
         <Component
@@ -50,12 +59,14 @@ type PasswordInputProps = Readonly<{
 }> &
   BaseInputProps;
 
-export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-  ({ base, ...props }: PasswordInputProps, ref) => {
-    const TheInput = withPasswordView(base);
+export const PasswordInput = memo(
+  forwardRef<HTMLInputElement, PasswordInputProps>(
+    ({ base, ...props }: PasswordInputProps, ref) => {
+      const TheInput = useMemo(() => withPasswordView(base), [base]);
 
-    return <TheInput {...props} ref={ref} />;
-  }
+      return <TheInput {...props} ref={ref} />;
+    }
+  )
 );
 
 PasswordInput.displayName = "PasswordInput";
