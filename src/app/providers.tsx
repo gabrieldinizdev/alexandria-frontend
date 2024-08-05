@@ -6,6 +6,6 @@ type AppProvidersProps = Readonly<{
   children: ReactNode;
 }>;
 
-export function AppProviders({ children }: AppProvidersProps) {
+export async function AppProviders({ children }: AppProvidersProps) {
   return <ThemeRegistry options={{ key: "joy" }}>{children}</ThemeRegistry>;
 }

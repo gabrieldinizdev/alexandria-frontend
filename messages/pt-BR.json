@@ -1,5 +1,44 @@
 {
   "HomePage": {
     "title": "PORTUGUÊS !"
+  },
+
+  "Auth": {
+    "Common": {
+      "signInWith": "Entre com {provider}",
+      "emailFieldPlaceholder": "Digite seu e-mail",
+      "passwordFieldPlaceholder": "Digite sua senha"
+    },
+    "Login": {
+      "titlePage": "Alexandria",
+      "subtitlePage_01": "Bem vindo de volta !",
+      "subtitlePage_02": "Faça login para continuar",
+      "loginButton": "Acessar",
+      "forgotPassword": "Esqueceu sua senha ?",
+      "or": "ou",
+      "invalidCredentials": "Credenciais inválidas",
+      "somethingWentWrong": "Algo deu errado"
+    }
+  },
+
+  "Shared": {
+    "Common": {
+      "showPassword": "Mostrar senha",
+      "hidePassword": "Esconder senha"
+    },
+    "Validations": {
+      "required": "Campo obrigatório",
+      "invalidEmail": "E-mail inválido",
+      "requiredEmail": "E-mail é obrigatório",
+      "tooShortEmail": "E-mail é muito curto",
+      "requiredPassword": "Senha é obrigatório",
+      "tooShortPassword": "Senha é muito curta",
+      "tooLongPassword": "Senha é muito longa"
+    },
+    "NotFound": {
+      "title": "Ops... nos perdemos no caminho !",
+      "subtitle": "Página não encontrada",
+      "description": "A página que você está procurando não existe."
+    }
   }
 }

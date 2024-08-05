@@ -1,3 +1,16 @@
 {
-  "i18n-ally.localesPaths": ["messages"]
+  "i18n-ally.localesPaths": ["messages"],
+  "i18n-ally.sourceLanguage": "pt-BR",
+  "cSpell.words": [
+    "dotlottie",
+    "fontawesome",
+    "fortawesome",
+    "hookform",
+    "latin",
+    "lottie",
+    "lottiefiles",
+    "snackbars",
+    "usehooks"
+  ],
+  "i18n-ally.keystyle": "nested"
 }
