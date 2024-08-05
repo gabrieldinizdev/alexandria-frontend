@@ -3,11 +3,8 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import { Quicksand } from "next/font/google";
 
 import { AppProviders } from "./providers";
-
-const quicksand = Quicksand({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Alexandria",
@@ -26,7 +23,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <AppProviders>
       <NextIntlClientProvider messages={messages}>
         <html lang={locale}>
-          <body className={quicksand.className}>{children}</body>
+          <body>{children}</body>
         </html>
       </NextIntlClientProvider>
     </AppProviders>

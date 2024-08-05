@@ -9,7 +9,7 @@ import { CssVarsProvider, CssBaseline, GlobalStyles } from "@mui/joy";
 import createCache, { Options } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 
-import { MintTheme } from "@/themes/sky";
+import { SkyTheme } from "@/themes/sky";
 
 type ThemeRegistryProps = Readonly<{
   options: Options;
@@ -61,7 +61,7 @@ export function ThemeRegistry(props: ThemeRegistryProps) {
 
   return (
     <CacheProvider value={cache}>
-      <CssVarsProvider theme={MintTheme} defaultMode="light">
+      <CssVarsProvider theme={SkyTheme} defaultMode="light">
         <GlobalStyles
           styles={{
             ".svg-inline--fa": {
@@ -72,8 +72,17 @@ export function ThemeRegistry(props: ThemeRegistryProps) {
               height: "1em",
             },
 
-            "*::selection": {
-              backgroundColor: "var(--joy-palette-primary-solidBg)",
+            "html, body": {
+              minHeight: "100vh",
+              minWidth: "100vw",
+              overflowX: "hidden",
+              overflowY: "auto",
+              margin: 0,
+              padding: 0,
+            },
+
+            "*, *::before, *::after": {
+              boxSizing: "border-box",
             },
           }}
         />
