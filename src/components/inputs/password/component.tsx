@@ -6,9 +6,9 @@ import { useTranslations } from "next-intl";
 
 import { IconButton, Tooltip } from "@mui/joy";
 
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 
+import { Icon } from "@/components/icons";
 import { Info } from "@/components/texts";
 
 import { BaseInput, type BaseInputProps } from "../base";
@@ -28,7 +28,7 @@ function withPasswordView(Component: typeof BaseInput) {
         [showPassword]
       );
       const iconType = useMemo(
-        () => (showPassword ? faEyeSlash : faEye),
+        () => (showPassword ? EyeSlash : Eye),
         [showPassword]
       );
 
@@ -39,7 +39,7 @@ function withPasswordView(Component: typeof BaseInput) {
           endDecorator={
             <Tooltip title={<Info>{t(tooltipMessage)}</Info>} arrow>
               <IconButton onClick={() => setShowPassword((prev) => !prev)}>
-                <FontAwesomeIcon icon={iconType} />
+                <Icon icon={iconType} />
               </IconButton>
             </Tooltip>
           }

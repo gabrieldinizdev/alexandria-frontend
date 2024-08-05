@@ -1,27 +1,33 @@
-import { useMemo } from "react";
+import { forwardRef, useMemo } from "react";
 
-import { faGithubAlt, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GithubLogo, GoogleLogo } from "@phosphor-icons/react";
 
-type ProviderIconProps = {
+import { Icon, type IconBaseProps } from "../base";
+
+type ProviderIconProps = Readonly<{
   provider: string;
-};
+}> &
+  Omit<IconBaseProps, "icon">;
 
-export function ProvidersIcon({ provider }: ProviderIconProps) {
-  const icon = useMemo(() => {
-    switch (provider) {
-      case "github":
-        return faGithubAlt;
+export const ProvidersIcon = forwardRef(
+  ({ provider, ...props }: ProviderIconProps, ref) => {
+    const icon = useMemo(() => {
+      switch (provider) {
+        case "github":
+          return GithubLogo;
 
-      case "google":
-        return faGoogle;
+        case "google":
+          return GoogleLogo;
 
-      default:
-        return null;
-    }
-  }, [provider]);
+        default:
+          return null;
+      }
+    }, [provider]);
 
-  if (!icon) return <></>;
+    if (!icon) return <></>;
 
-  return <FontAwesomeIcon icon={icon} />;
-}
+    return <Icon icon={icon} />;
+  }
+);
+
+ProvidersIcon.displayName = "ProvidersIcon";
