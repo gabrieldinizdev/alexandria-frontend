@@ -4,11 +4,11 @@ import type { AuthError } from "next-auth";
 import { isRedirectError } from "next/dist/client/components/redirect";
 
 import { signIn } from "@/lib/auth";
-import type { LoginSchema } from "@/schemas/auth";
+import type { LoginSchemaType } from "@/schemas/auth";
 
 type LoginSubmitActionInput = {
   id: string;
-  options: LoginSchema | Record<string, any>;
+  options: LoginSchemaType | Record<string, any>;
 };
 
 export async function LoginSubmitAction({
@@ -22,7 +22,7 @@ export async function LoginSubmitAction({
     const somethingWentWrongErrorMessage = "somethingWentWrong";
 
     if (isRedirectError(error)) {
-      console.warn("RedirectError", { error });
+      console.warn("RedirectError", error.cause ?? error.message);
 
       throw error;
     }

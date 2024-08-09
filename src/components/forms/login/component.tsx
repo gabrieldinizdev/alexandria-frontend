@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useForm, useFormState } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { useTranslations } from "next-intl";
 
@@ -19,11 +19,11 @@ import { Link } from "@/components/link";
 import { ErrorSnackbar } from "@/components/snackbars";
 import { Small } from "@/components/texts";
 import { providersList } from "@/lib/auth";
-import { loginSchema, type LoginSchema } from "@/schemas/auth";
+import { LoginSchema, type LoginSchemaType } from "@/schemas/auth";
 
 const PendingProvider = new Set<string>();
 
-export function LoginForm() {
+export function FormLogin() {
   const t = useTranslations();
   const namespaceCommon = "Auth.Common";
   const namespaceLogin = "Auth.Login";
@@ -37,16 +37,15 @@ export function LoginForm() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<LoginSchemaType>({
+    resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
-  const {} = useFormState({ control });
 
-  const onSubmit = (data: LoginSchema) => {
+  const onSubmit = (data: LoginSchemaType) => {
     startTransition(async () => {
       const errorMessage = await LoginSubmitAction({
         id: "credentials",

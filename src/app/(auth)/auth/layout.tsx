@@ -10,6 +10,7 @@ import { Box, Stack } from "@mui/joy";
 import { useMediaQuery } from "usehooks-ts";
 
 import DesktopPlaceholderLoginAnimation from "@/animations/login/desktop-placeholder-login.json";
+import { CardAuth } from "@/components/cards";
 import {
   IS_MOBILE_BREAKPOINT,
   IS_TABLET_BREAKPOINT,
@@ -75,7 +76,7 @@ function AuthLayout({ children }: AuthLayoutProps) {
         px={isMobile ? 0 : 8}
         py={isMobile ? 0 : 8}
       >
-        {children}
+        <CardAuth>{children}</CardAuth>
       </Box>
     </Stack>
   );
