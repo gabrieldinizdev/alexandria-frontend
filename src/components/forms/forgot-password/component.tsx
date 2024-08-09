@@ -73,7 +73,7 @@ export function FormForgotPassword() {
 
       <Stack gap={2}>
         <SolidButton disabled={isDisabled} loading={isPending} type="submit">
-          {t(`${namespaceCommon}.sendEmail`)}
+          {t(`${namespaceForgotPassword}.sendEmail`)}
         </SolidButton>
       </Stack>
 
