@@ -7,8 +7,7 @@
     "Common": {
       "signInWith": "Entre com {provider}",
       "emailFieldPlaceholder": "Digite seu e-mail",
-      "passwordFieldPlaceholder": "Digite sua senha",
-      "sendEmail": "Enviar E-mail"
+      "passwordFieldPlaceholder": "Digite sua senha"
     },
     "Login": {
       "titlePage": "Alexandria",
@@ -21,9 +20,10 @@
       "somethingWentWrong": "Algo deu errado"
     },
     "ForgotPassword": {
-      "forgotPassword": "Esqueceu a senha ?",
+      "forgotPassword": "Esqueceu sua senha ?",
       "subtitlePage_01": "Escreva seu email, enviaremos um código de verificação via email",
-      "emailSentSuccessfully": "Enviamos um e-mail com instruções para você redefinir sua senha."      
+      "emailSentSuccessfully": "Enviamos um e-mail com instruções para você redefinir sua senha.",      
+      "sendEmail": "Enviar E-mail"
     }
   },
 

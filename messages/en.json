@@ -6,8 +6,7 @@
     "Common": {
       "signInWith": "Sign in with {provider}",
       "emailFieldPlaceholder": "Type your e-mail",
-      "passwordFieldPlaceholder": "Type your password",
-      "sendEmail": "Send E-mail"
+      "passwordFieldPlaceholder": "Type your password"
     },
     "Login": {
       "titlePage": "Alexandria",
@@ -19,9 +18,10 @@
       "somethingWentWrong": "Something went wrong"
     },
     "ForgotPassword": {
-      "forgotPassword": "Forgot password ?",
+      "forgotPassword": "Forgot your password ?",
       "subtitlePage_01": "Type your email, we will send a verification code via email",
-      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password."   
+      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password.",   
+      "sendEmail": "Send E-mail"
     }
   },
 

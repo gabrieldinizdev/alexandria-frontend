@@ -19,11 +19,11 @@ export default function SignInPage() {
         gap={1}
         width="100%"
       >
-        <Jumbo>Alexandria</Jumbo>
+        <Jumbo>{t("titlePage")}</Jumbo>
 
         <Stack alignItems="center">
           <Subtitle>{t("subtitlePage_01")}</Subtitle>
-          <Subtitle>Faça seu login</Subtitle>
+          <Subtitle>{t("subtitlePage_02")}</Subtitle>
         </Stack>
       </Stack>
 
