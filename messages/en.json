@@ -6,17 +6,22 @@
     "Common": {
       "signInWith": "Sign in with {provider}",
       "emailFieldPlaceholder": "Type your e-mail",
-      "passwordFieldPlaceholder": "Type your password"
+      "passwordFieldPlaceholder": "Type your password",
+      "sendEmail": "Send E-mail"
     },
     "Login": {
       "titlePage": "Alexandria",
       "subtitlePage_01": "Welcome back !",
       "subtitlePage_02": "Log in to continue",
       "loginButton": "Login",
-      "forgotPassword": "Forgot password ?",
       "or": "or",
       "invalidCredentials": "Invalid credentials",
       "somethingWentWrong": "Something went wrong"
+    },
+    "ForgotPassword": {
+      "forgotPassword": "Forgot password ?",
+      "subtitlePage_01": "Type your email, we will send a verification code via email",
+      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password."   
     }
   },
 
