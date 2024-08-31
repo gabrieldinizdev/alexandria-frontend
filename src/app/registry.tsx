@@ -4,10 +4,12 @@ import { useState, type ReactNode } from "react";
 
 import { useServerInsertedHTML } from "next/navigation";
 
-import { CssVarsProvider, CssBaseline, GlobalStyles } from "@mui/joy";
+import { CssBaseline, CssVarsProvider, GlobalStyles } from "@mui/joy";
 
 import createCache, { Options } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
+import type { ReactRenderer } from "@storybook/react";
+import type { PartialStoryFn } from "storybook/internal/types";
 
 import { SkyTheme } from "@/themes/sky";
 
@@ -91,3 +93,9 @@ export function ThemeRegistry(props: ThemeRegistryProps) {
     </CacheProvider>
   );
 }
+
+export const withThemeRegistry = (Story: PartialStoryFn<ReactRenderer>) => (
+  <ThemeRegistry options={{ key: "storybook-joy" }}>
+    <Story />
+  </ThemeRegistry>
+);
