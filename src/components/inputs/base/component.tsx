@@ -53,4 +53,4 @@ export const InputBase = forwardRef<HTMLInputElement, InputBaseProps>(
   }
 );
 
-InputBase.displayName = "BaseInput";
+InputBase.displayName = "InputBase";

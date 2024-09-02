@@ -63,3 +63,4 @@ jobs:
           onlyChanged: true
           exitZeroOnChanges: true
           skip: "dependabot/**"
+          buildScriptName: "storybook:build"

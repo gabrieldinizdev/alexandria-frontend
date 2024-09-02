@@ -30,4 +30,4 @@ export const IconProviders = forwardRef(
   }
 );
 
-IconProviders.displayName = "ProvidersIcon";
+IconProviders.displayName = "IconProviders";
