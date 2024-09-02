@@ -30,10 +30,12 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
           ANY_CHANGED: ${{ steps.changed-files.outputs.any_changed }}
         run: |
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-            echo Did any files change: ${ANY_CHANGED}
-          done
+          if [ "$ANY_CHANGED" = "true" ]; then
+            echo "files changed:"
+            echo "$ALL_CHANGED_FILES" | tr ' ' '\n'
+          else
+            echo "did any file changes"
+          fi
 
   chromatic:
     name: Run Chromatic
