@@ -2,14 +2,14 @@
 
 import { forwardRef } from "react";
 
-import { BaseButton, type BaseButtonProps } from "../base";
+import { ButtonBase, type ButtonBaseProps } from "../base";
 
-type SolidButtonProps = Readonly<{}> & BaseButtonProps;
+type ButtonSolidProps = Readonly<{}> & ButtonBaseProps;
 
-export const SolidButton = forwardRef<HTMLButtonElement, SolidButtonProps>(
+export const ButtonSolid = forwardRef<HTMLButtonElement, ButtonSolidProps>(
   (props, ref) => {
-    return <BaseButton {...props} variant="solid" ref={ref} />;
+    return <ButtonBase {...props} variant="solid" ref={ref} />;
   }
 );
 
-SolidButton.displayName = "SolidButton";
+ButtonSolid.displayName = "ButtonSolid";

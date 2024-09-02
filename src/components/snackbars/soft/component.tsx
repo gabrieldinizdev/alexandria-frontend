@@ -2,14 +2,14 @@
 
 import { forwardRef } from "react";
 
-import { BaseSnackbar, type BaseSnackbarProps } from "../base";
+import { SnackbarBase, type SnackbarBaseProps } from "../base";
 
-type SoftSnackbarProps = Readonly<{}> & BaseSnackbarProps;
+type SnackbarSoftProps = Readonly<{}> & SnackbarBaseProps;
 
-export const SoftSnackbar = forwardRef<HTMLDivElement, SoftSnackbarProps>(
+export const SnackbarSoft = forwardRef<HTMLDivElement, SnackbarSoftProps>(
   (props, ref) => {
-    return <BaseSnackbar {...props} variant="soft" ref={ref} />;
+    return <SnackbarBase {...props} variant="soft" ref={ref} />;
   }
 );
 
-SoftSnackbar.displayName = "SoftSnackbar";
+SnackbarSoft.displayName = "SnackbarSoft";

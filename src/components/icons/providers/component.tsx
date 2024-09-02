@@ -2,15 +2,15 @@ import { forwardRef, useMemo } from "react";
 
 import { GithubLogo, GoogleLogo } from "@phosphor-icons/react";
 
-import { Icon, type IconBaseProps } from "../base";
+import { IconBase, type IconBaseProps } from "../base";
 
-type ProviderIconProps = Readonly<{
+type IconProviderProps = Readonly<{
   provider: string;
 }> &
   Omit<IconBaseProps, "icon">;
 
-export const ProvidersIcon = forwardRef(
-  ({ provider, ...props }: ProviderIconProps, ref) => {
+export const IconProviders = forwardRef(
+  ({ provider, ...props }: IconProviderProps, ref) => {
     const icon = useMemo(() => {
       switch (provider) {
         case "github":
@@ -26,8 +26,8 @@ export const ProvidersIcon = forwardRef(
 
     if (!icon) return <></>;
 
-    return <Icon icon={icon} />;
+    return <IconBase icon={icon} {...props} />;
   }
 );
 
-ProvidersIcon.displayName = "ProvidersIcon";
+IconProviders.displayName = "ProvidersIcon";

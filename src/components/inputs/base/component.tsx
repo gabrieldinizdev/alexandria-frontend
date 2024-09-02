@@ -9,13 +9,13 @@ import {
   type InputProps,
 } from "@mui/joy";
 
-export type BaseInputProps = Readonly<{
+export type InputBaseProps = Readonly<{
   error?: string;
 }> &
   Omit<ControllerProps<any>, "render"> &
   Omit<InputProps, "defaultValue" | "error">;
 
-export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
+export const InputBase = forwardRef<HTMLInputElement, InputBaseProps>(
   ({ name, control, error, ...inputProps }, ref) => {
     // remove "defaultValue", because we use "defaultValues" from useForm
     const { defaultValue: _ } = inputProps;
@@ -31,17 +31,26 @@ export const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
               sx={{ height: "48px" }}
               {...field}
               {...inputProps}
+              slotProps={{
+                input: {
+                  "data-testid": name,
+                },
+              }}
               ref={ref}
             />
           )}
         />
 
-        <Typography level="small">
-          <FormHelperText>{error}</FormHelperText>
-        </Typography>
+        {error && (
+          <Typography level="small">
+            <FormHelperText data-testid={`error-${name}`}>
+              {error}
+            </FormHelperText>
+          </Typography>
+        )}
       </FormControl>
     );
   }
 );
 
-BaseInput.displayName = "BaseInput";
+InputBase.displayName = "BaseInput";

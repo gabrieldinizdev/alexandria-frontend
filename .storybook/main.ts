@@ -1,14 +1,31 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 
+import type { AddonOptionsVite } from "@storybook/addon-coverage";
+
+const coverageConfig: AddonOptionsVite = {
+  istanbul: {
+    include: ["src/components/**/*.{ts,tsx}"],
+    exclude: [
+      "src/libs/**",
+      "src/types/**",
+      "src/themes/**",
+      "src/config/**",
+      "src/hooks/**",
+      "src/app/**",
+    ],
+  },
+};
+
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    "@storybook/addon-onboarding",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
     "@chromatic-com/storybook",
+    { name: "@storybook/addon-coverage", options: coverageConfig },
+    "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-themes"
+    "@storybook/addon-links",
+    "@storybook/addon-onboarding",
+    "@storybook/addon-themes",
   ],
   framework: {
     name: "@storybook/nextjs",

@@ -2,15 +2,15 @@
 
 import { forwardRef } from "react";
 
-import { BaseButton, type BaseButtonProps } from "../base";
+import { ButtonBase, type ButtonBaseProps } from "../base";
 
-type OutlinedButtonProps = Readonly<{}> & BaseButtonProps;
+type ButtonOutlinedProps = Readonly<{}> & ButtonBaseProps;
 
-export const OutlinedButton = forwardRef<
+export const ButtonOutlined = forwardRef<
   HTMLButtonElement,
-  OutlinedButtonProps
+  ButtonOutlinedProps
 >((props, ref) => {
-  return <BaseButton {...props} variant="outlined" ref={ref} />;
+  return <ButtonBase {...props} variant="outlined" ref={ref} />;
 });
 
-OutlinedButton.displayName = "OutlinedButton";
+ButtonOutlined.displayName = "ButtonOutlined";

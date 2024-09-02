@@ -8,13 +8,13 @@ import { IconButton, Tooltip } from "@mui/joy";
 
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 
-import { Icon } from "@/components/icons";
+import { IconBase } from "@/components/icons";
 import { Info } from "@/components/texts";
 
-import { BaseInput, type BaseInputProps } from "../base";
+import { InputBase, type InputBaseProps } from "../base";
 
-function withPasswordView(Component: typeof BaseInput) {
-  const PasswordView = forwardRef<HTMLInputElement, BaseInputProps>(
+function withPasswordView(Component: typeof InputBase) {
+  const PasswordView = forwardRef<HTMLInputElement, InputBaseProps>(
     (props, ref) => {
       const t = useTranslations("Shared.Common");
       const [showPassword, setShowPassword] = useState(false);
@@ -39,7 +39,7 @@ function withPasswordView(Component: typeof BaseInput) {
           endDecorator={
             <Tooltip title={<Info>{t(tooltipMessage)}</Info>} arrow>
               <IconButton onClick={() => setShowPassword((prev) => !prev)}>
-                <Icon icon={iconType} />
+                <IconBase icon={iconType} />
               </IconButton>
             </Tooltip>
           }
@@ -54,14 +54,14 @@ function withPasswordView(Component: typeof BaseInput) {
   return PasswordView;
 }
 
-type PasswordInputProps = Readonly<{
-  base: typeof BaseInput;
+type InputPasswordProps = Readonly<{
+  base: typeof InputBase;
 }> &
-  BaseInputProps;
+  InputBaseProps;
 
-export const PasswordInput = memo(
-  forwardRef<HTMLInputElement, PasswordInputProps>(
-    ({ base, ...props }: PasswordInputProps, ref) => {
+export const InputPassword = memo(
+  forwardRef<HTMLInputElement, InputPasswordProps>(
+    ({ base, ...props }: InputPasswordProps, ref) => {
       const TheInput = useMemo(() => withPasswordView(base), [base]);
 
       return <TheInput {...props} ref={ref} />;
@@ -69,4 +69,4 @@ export const PasswordInput = memo(
   )
 );
 
-PasswordInput.displayName = "PasswordInput";
+InputPassword.displayName = "InputPassword";

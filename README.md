@@ -2,6 +2,8 @@
 
 Welcome to Alexandria's Library. An E-commerce Library with something new...
 
+[![codecov](https://codecov.io/gh/gabrieldinizdev/alexandria-frontend/graph/badge.svg?token=VOHSH6MP3Q)](https://codecov.io/gh/gabrieldinizdev/alexandria-frontend)
+
 ## Getting Started
 
 First, install the dependencies:
@@ -36,6 +38,7 @@ npm run start
 
 - [NextJS](https://nextjs.org/docs);
 - [Joy UI](https://mui.com/joy-ui/getting-started/);
+- [Storybook](https://storybook.js.org/docs);
 - [Next Auth](https://next-auth.js.org/getting-started/introduction);
 - [Next Intl](https://next-intl-docs.vercel.app/docs/getting-started/app-router/without-i18n-routing);
 - [Font Awesome Icons](https://fontawesome.com/start);

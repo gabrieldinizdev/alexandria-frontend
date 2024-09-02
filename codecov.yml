@@ -1,0 +1,22 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default:
+        target: 70% # the required coverage value
+        threshold: 1%
+
+  comment:
+    require_changes: "coverage_drop OR uncovered_patch"
+
+  include:
+    - ""
+  exclude:
+    - "tests/**"
+    - "**/test/**"
+
+  flags:
+    - unittests

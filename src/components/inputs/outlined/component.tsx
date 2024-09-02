@@ -2,14 +2,14 @@
 
 import { forwardRef } from "react";
 
-import { BaseInput, type BaseInputProps } from "../base";
+import { InputBase, type InputBaseProps } from "../base";
 
-type OutlinedInputProps = Readonly<{}> & BaseInputProps;
+type InputOutlinedProps = Readonly<{}> & InputBaseProps;
 
-export const OutlinedInput = forwardRef<HTMLInputElement, OutlinedInputProps>(
+export const InputOutlined = forwardRef<HTMLInputElement, InputOutlinedProps>(
   (props, ref) => {
-    return <BaseInput {...props} variant="outlined" ref={ref} />;
+    return <InputBase {...props} variant="outlined" ref={ref} />;
   }
 );
 
-OutlinedInput.displayName = "OutlinedInput";
+InputOutlined.displayName = "InputOutlined";
