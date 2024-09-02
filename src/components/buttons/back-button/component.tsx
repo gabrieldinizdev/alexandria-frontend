@@ -4,11 +4,11 @@ import { forwardRef, useCallback } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { IconButton, type IconButtonProps } from "../icon";
+import { ButtonIcon, type ButtonIconProps } from "../icon";
 
-type BackButtonProps = Readonly<{ href?: string }> & IconButtonProps;
+type ButtonBackProps = Readonly<{ href?: string }> & ButtonIconProps;
 
-export const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(
+export const ButtonBack = forwardRef<HTMLButtonElement, ButtonBackProps>(
   ({ href, ...props }, ref) => {
     const router = useRouter();
 
@@ -21,8 +21,8 @@ export const BackButton = forwardRef<HTMLButtonElement, BackButtonProps>(
       navigate();
     };
 
-    return <IconButton onClick={handleClick} {...props} ref={ref} />;
+    return <ButtonIcon onClick={handleClick} {...props} ref={ref} />;
   }
 );
 
-BackButton.displayName = "BackButton";
+ButtonBack.displayName = "ButtonBack";

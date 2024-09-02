@@ -4,33 +4,33 @@ import { forwardRef, type ReactNode } from "react";
 
 import { Warning } from "@phosphor-icons/react";
 
-import { Icon } from "@/components/icons";
+import { IconBase } from "@/components/icons";
 
-import type { BaseSnackbarProps } from "../base";
-import { SoftSnackbar } from "../soft";
+import type { SnackbarBaseProps } from "../base";
+import { SnackbarSoft } from "../soft";
 
-type ErrorSnackbarProps = Readonly<{
+type SnackbarErrorProps = Readonly<{
   children: ReactNode;
 }> &
-  BaseSnackbarProps;
+  SnackbarBaseProps;
 
-export const ErrorSnackbar = forwardRef<HTMLDivElement, ErrorSnackbarProps>(
+export const SnackbarError = forwardRef<HTMLDivElement, SnackbarErrorProps>(
   ({ children, ...props }, ref) => {
     return (
-      <SoftSnackbar
+      <SnackbarSoft
         color="danger"
         anchorOrigin={{
           horizontal: "center",
           vertical: "top",
         }}
-        startDecorator={<Icon icon={Warning} />}
+        startDecorator={<IconBase icon={Warning} />}
         {...props}
         ref={ref}
       >
         {children}
-      </SoftSnackbar>
+      </SnackbarSoft>
     );
   }
 );
 
-ErrorSnackbar.displayName = "ErrorSnackbar";
+SnackbarError.displayName = "SnackbarError";

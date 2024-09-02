@@ -2,12 +2,12 @@ import { forwardRef } from "react";
 
 import { Snackbar, type SnackbarProps } from "@mui/joy";
 
-export type BaseSnackbarProps = Readonly<{}> & SnackbarProps;
+export type SnackbarBaseProps = Readonly<{}> & SnackbarProps;
 
-export const BaseSnackbar = forwardRef<HTMLDivElement, BaseSnackbarProps>(
+export const SnackbarBase = forwardRef<HTMLDivElement, SnackbarBaseProps>(
   (props, ref) => {
     return <Snackbar autoHideDuration={3000} {...props} ref={ref} />;
   }
 );
 
-BaseSnackbar.displayName = "BaseSnackbar";
+SnackbarBase.displayName = "SnackbarBase";

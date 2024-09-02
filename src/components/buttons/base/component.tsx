@@ -2,9 +2,9 @@ import { forwardRef } from "react";
 
 import { Button, ButtonProps } from "@mui/joy";
 
-export type BaseButtonProps = Readonly<{}> & ButtonProps;
+export type ButtonBaseProps = Readonly<{}> & ButtonProps;
 
-export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
+export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(
   ({ ...buttonProps }, ref) => {
     const customSX = buttonProps.sx;
 
@@ -18,4 +18,4 @@ export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
   }
 );
 
-BaseButton.displayName = "BaseButton";
+ButtonBase.displayName = "ButtonBase";

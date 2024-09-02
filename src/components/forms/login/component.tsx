@@ -11,12 +11,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Envelope, LockKey } from "@phosphor-icons/react";
 
 import { LoginSubmitAction } from "@/actions/auth";
-import { OutlinedButton, SolidButton } from "@/components/buttons";
+import { ButtonOutlined, ButtonSolid } from "@/components/buttons";
 import { Title } from "@/components/headings";
-import { Icon, ProvidersIcon } from "@/components/icons";
-import { OutlinedInput, PasswordInput } from "@/components/inputs";
+import { IconBase, IconProviders } from "@/components/icons";
+import { InputOutlined, InputPassword } from "@/components/inputs";
 import { Link } from "@/components/link";
-import { ErrorSnackbar } from "@/components/snackbars";
+import { SnackbarError } from "@/components/snackbars";
 import { Small } from "@/components/texts";
 import { providersList } from "@/lib/auth";
 import { LoginSchema, type LoginSchemaType } from "@/schemas/auth";
@@ -88,21 +88,21 @@ export function FormLogin() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Stack gap={2} alignItems="stretch">
-        <OutlinedInput
+        <InputOutlined
           name="email"
           control={control}
           error={errors.email && t(errors.email?.message)}
           placeholder={t(`${namespaceCommon}.emailFieldPlaceholder`)}
-          startDecorator={<Icon icon={Envelope} size={24} />}
+          startDecorator={<IconBase icon={Envelope} size={24} />}
         />
 
-        <PasswordInput
-          base={OutlinedInput}
+        <InputPassword
+          base={InputOutlined}
           name="password"
           control={control}
           error={errors.password && t(errors.password?.message)}
           placeholder={t(`${namespaceCommon}.passwordFieldPlaceholder`)}
-          startDecorator={<Icon icon={LockKey} size={24} />}
+          startDecorator={<IconBase icon={LockKey} size={24} />}
         />
 
         <Stack width="100%" alignItems="center">
@@ -115,9 +115,9 @@ export function FormLogin() {
       </Stack>
 
       <Stack gap={2}>
-        <SolidButton disabled={isDisabled} loading={isPending} type="submit">
+        <ButtonSolid disabled={isDisabled} loading={isPending} type="submit">
           {t(`${namespaceLogin}.loginButton`)}
-        </SolidButton>
+        </ButtonSolid>
 
         <Box width="100%" display="flex" justifyContent="center">
           <Title>{t(`${namespaceLogin}.or`)}</Title>
@@ -125,7 +125,7 @@ export function FormLogin() {
 
         {providersList.map((provider) => (
           <Box key={JSON.stringify(provider)} width="100%">
-            <OutlinedButton
+            <ButtonOutlined
               disabled={isDisabled}
               loading={isPendingProviders && PendingProvider.has(provider.id)}
               sx={{
@@ -135,7 +135,7 @@ export function FormLogin() {
                   paddingInline: "1rem",
                 },
               }}
-              startDecorator={<ProvidersIcon provider={provider.id} />}
+              startDecorator={<IconProviders provider={provider.id} />}
               onClick={() => {
                 PendingProvider.add(provider.id);
 
@@ -143,7 +143,7 @@ export function FormLogin() {
               }}
             >
               {t(`${namespaceCommon}.signInWith`, { provider: provider.name })}
-            </OutlinedButton>
+            </ButtonOutlined>
           </Box>
         ))}
 
@@ -158,12 +158,12 @@ export function FormLogin() {
         </Stack>
       </Stack>
 
-      <ErrorSnackbar
+      <SnackbarError
         open={messageErrorSnackbar.length > 0}
         onClose={() => setMessageErrorSnackbar("")}
       >
         {messageErrorSnackbar}
-      </ErrorSnackbar>
+      </SnackbarError>
     </Stack>
   );
 }

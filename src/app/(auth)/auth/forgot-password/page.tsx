@@ -6,7 +6,7 @@ import { Box, Stack } from "@mui/joy";
 
 import { CaretLeft } from "@phosphor-icons/react";
 
-import { BackButton } from "@/components/buttons/back-button";
+import { ButtonBack } from "@/components/buttons/back-button";
 import { FormForgotPassword } from "@/components/forms/forgot-password";
 import { Subtitle, Title } from "@/components/headings";
 
@@ -23,7 +23,7 @@ export default function ForgotPasswordPage() {
         width="100%"
       >
         <Box display="flex" alignSelf="flex-start">
-          <BackButton icon={CaretLeft} />
+          <ButtonBack icon={CaretLeft} />
         </Box>
 
         <Title>{t("forgotPassword")}</Title>

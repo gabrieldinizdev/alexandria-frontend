@@ -7,11 +7,11 @@ import {
 
 import type { Icon as IconType } from "@phosphor-icons/react";
 
-import { Icon } from "@/components/icons";
+import { IconBase } from "@/components/icons";
 
-export type IconButtonProps = Readonly<{ icon: IconType }> & IconButtonPropsJoy;
+export type ButtonIconProps = Readonly<{ icon: IconType }> & IconButtonPropsJoy;
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
   ({ icon, ...buttonProps }, ref) => {
     const customSX = buttonProps.sx;
 
@@ -21,10 +21,10 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         sx={{ ...customSX, height: "48px", width: "48px" }}
         ref={ref}
       >
-        <Icon size="28px" icon={icon} />
+        <IconBase size="28px" icon={icon} />
       </IconButtonJoy>
     );
   }
 );
 
-IconButton.displayName = "IconButton";
+ButtonIcon.displayName = "ButtonIcon";

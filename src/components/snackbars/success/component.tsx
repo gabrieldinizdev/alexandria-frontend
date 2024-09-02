@@ -4,33 +4,33 @@ import { forwardRef, type ReactNode } from "react";
 
 import { Check } from "@phosphor-icons/react";
 
-import { Icon } from "@/components/icons";
+import { IconBase } from "@/components/icons";
 
-import type { BaseSnackbarProps } from "../base";
-import { SoftSnackbar } from "../soft";
+import type { SnackbarBaseProps } from "../base";
+import { SnackbarSoft } from "../soft";
 
-type SuccessSnackbarProps = Readonly<{
+type SnackbarSuccessProps = Readonly<{
   children: ReactNode;
 }> &
-  BaseSnackbarProps;
+  SnackbarBaseProps;
 
-export const SuccessSnackbar = forwardRef<HTMLDivElement, SuccessSnackbarProps>(
+export const SnackbarSuccess = forwardRef<HTMLDivElement, SnackbarSuccessProps>(
   ({ children, ...props }, ref) => {
     return (
-      <SoftSnackbar
+      <SnackbarSoft
         color="success"
         anchorOrigin={{
           horizontal: "center",
           vertical: "top",
         }}
-        startDecorator={<Icon icon={Check} />}
+        startDecorator={<IconBase icon={Check} />}
         {...props}
         ref={ref}
       >
         {children}
-      </SoftSnackbar>
+      </SnackbarSoft>
     );
   }
 );
 
-SuccessSnackbar.displayName = "SuccessSnackbar";
+SnackbarSuccess.displayName = "SnackbarSuccess";

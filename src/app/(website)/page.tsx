@@ -3,7 +3,7 @@
 import { useTransition } from "react";
 
 import { LogoutSubmitAction } from "@/actions/auth";
-import { SolidButton } from "@/components/buttons";
+import { ButtonSolid } from "@/components/buttons";
 import { Title } from "@/components/headings";
 
 export default function HomePage() {
@@ -21,9 +21,9 @@ export default function HomePage() {
     <div>
       <Title>HOME PAGE</Title>
 
-      <SolidButton loading={isPending} disabled={isPending} onClick={logout}>
+      <ButtonSolid loading={isPending} disabled={isPending} onClick={logout}>
         Sair
-      </SolidButton>
+      </ButtonSolid>
     </div>
   );
 }

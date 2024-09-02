@@ -11,10 +11,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Envelope } from "@phosphor-icons/react";
 
 import { ForgotPasswordSubmitAction } from "@/actions/auth/forgot-password-submit";
-import { SolidButton } from "@/components/buttons";
-import { Icon } from "@/components/icons";
-import { OutlinedInput } from "@/components/inputs";
-import { SuccessSnackbar } from "@/components/snackbars";
+import { ButtonSolid } from "@/components/buttons";
+import { IconBase } from "@/components/icons";
+import { InputOutlined } from "@/components/inputs";
+import { SnackbarSuccess } from "@/components/snackbars";
 import {
   ForgotPasswordSchema,
   ForgotPasswordSchemaType,
@@ -62,28 +62,28 @@ export function FormForgotPassword() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Stack gap={2} alignItems="stretch">
-        <OutlinedInput
+        <InputOutlined
           name="email"
           control={control}
           error={errors.email && t(errors.email?.message)}
           placeholder={t(`${namespaceCommon}.emailFieldPlaceholder`)}
-          startDecorator={<Icon icon={Envelope} size={24} />}
+          startDecorator={<IconBase icon={Envelope} size={24} />}
         />
       </Stack>
 
       <Stack gap={2}>
-        <SolidButton disabled={isDisabled} loading={isPending} type="submit">
+        <ButtonSolid disabled={isDisabled} loading={isPending} type="submit">
           {t(`${namespaceForgotPassword}.sendEmail`)}
-        </SolidButton>
+        </ButtonSolid>
       </Stack>
 
-      <SuccessSnackbar
+      <SnackbarSuccess
         open={messageErrorSnackbar.length > 0}
         onClose={() => setMessageErrorSnackbar("")}
         autoHideDuration={6000}
       >
         {messageErrorSnackbar}
-      </SuccessSnackbar>
+      </SnackbarSuccess>
     </Stack>
   );
 }
