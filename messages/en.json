@@ -52,6 +52,21 @@
       "Link": {
         "normal": "To infinity and beyond"
       },
+      "Subtitle": {
+        "normal": "Enter your email and create your password"
+      },
+      "Title": {
+        "normal": "Forgot your password ?"
+      },
+      "Paragraph": {
+        "normal": "Product title"
+      },
+      "Info": {
+        "normal": "Hello visitor"
+      },
+      "Small": {
+        "normal": "Don't have an account?"
+      },
       "Snackbar": {
         "success": "Success message"
       }

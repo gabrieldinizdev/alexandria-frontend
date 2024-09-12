@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import { Sheet } from "@mui/joy";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -19,16 +21,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
-  args: {
-    children:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere accusantium inventore expedita, natus amet, necessitatibus odio maiores quia saepe ducimus quo cupiditate deleniti! Soluta, autem rem reprehenderit alias voluptatibus aperiam",
-  },
-
   decorators: [
-    (Story) => {
+    (Story, { args }) => {
+      const t = useTranslations("Storybook.Typography.Paragraph");
+
       return (
-        <Sheet variant="outlined" sx={{ maxWidth: "200px", p: 4 }}>
-          <Story />
+        <Sheet variant="outlined" sx={{ maxWidth: "500px", p: 4 }}>
+          <Story
+            args={{
+              ...args,
+              children: t("normal"),
+            }}
+          />
         </Sheet>
       );
     },
@@ -45,7 +49,7 @@ export const WithEllipsis: Story = {
   decorators: [
     (Story) => {
       return (
-        <Sheet variant="outlined" sx={{ maxWidth: "200px", p: 4 }}>
+        <Sheet variant="outlined" sx={{ maxWidth: "500px", p: 4 }}>
           <Story />
         </Sheet>
       );

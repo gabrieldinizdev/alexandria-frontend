@@ -53,6 +53,21 @@
       "Link": {
         "normal": "Ao infinito e além"
       },
+      "Subtitle": {
+        "normal": "Informe seu e-mail e crie sua senha"
+      },
+      "Title": {
+        "normal": "Esqueceu sua senha ?"
+      },
+      "Paragraph": {
+        "normal": "Titulo do produto"
+      },
+      "Info": {
+        "normal": "Olá visitante !"
+      },
+      "Small": {
+        "normal": "Não tem conta ?"
+      },
       "Snackbar": {
         "success": "Mensagem de sucesso"
       }
