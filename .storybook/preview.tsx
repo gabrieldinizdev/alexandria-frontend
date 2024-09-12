@@ -1,11 +1,15 @@
 import type { Preview } from "@storybook/react";
 
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-import { CssVarsProvider, GlobalStyles } from "@mui/joy";
 
 import { withActions } from "@storybook/addon-actions/decorator";
 
-import { withThemeRegistry } from "../src/app/registry";
+import {
+  CssVarsProvider,
+  GlobalStyles,
+  withThemeRegistry,
+} from "../src/app/registry";
+
 import nextIntl from "./next-intl";
 
 const preview: Preview = {
