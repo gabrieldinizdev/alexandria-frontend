@@ -72,8 +72,8 @@ export function ThemeRegistry(props: ThemeRegistryProps) {
             },
 
             "html, body": {
-              minHeight: "100vh",
-              minWidth: "100vw",
+              minHeight: "100dvh",
+              minWidth: "100dvw",
               overflowX: "hidden",
               overflowY: "auto",
               margin: 0,

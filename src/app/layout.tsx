@@ -8,7 +8,7 @@ import { AppProviders } from "./providers";
 
 export const metadata: Metadata = {
   title: "Alexandria",
-  description: "Alexandria ~ Livraria",
+  description: "Alexandria ~ E-commerce",
 };
 
 type RootLayoutProps = Readonly<{
