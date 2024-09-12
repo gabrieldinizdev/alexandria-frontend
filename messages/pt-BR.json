@@ -46,5 +46,14 @@
       "subtitle": "Página não encontrada",
       "description": "A página que você está procurando não existe."
     }
+  },
+
+"Storybook": {
+    "Typography": {
+      "Link": {
+        "normal": "Ao infinito e além"
+      }
+    }
   }
+  
 }

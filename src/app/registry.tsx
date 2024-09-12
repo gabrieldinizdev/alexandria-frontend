@@ -99,3 +99,4 @@ export const withThemeRegistry = (Story: PartialStoryFn<ReactRenderer>) => (
     <Story />
   </ThemeRegistry>
 );
+// Story: PartialStoryFn<ReactRenderer>
