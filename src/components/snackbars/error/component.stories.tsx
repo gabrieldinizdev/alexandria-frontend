@@ -11,11 +11,11 @@ import { expect, fireEvent, waitFor, within } from "@storybook/test";
 
 import { ButtonSolid } from "@/components/buttons";
 
-import { SnackbarSuccess } from "./component";
+import { SnackbarError } from "./component";
 
 const meta = {
-  title: "Snackbar/Success",
-  component: SnackbarSuccess,
+  title: "Snackbar/Error",
+  component: SnackbarError,
   parameters: {
     layout: "centered",
   },
@@ -41,14 +41,14 @@ const meta = {
             args={{
               ...args,
               open,
-              children: t("success"),
+              children: t("Error"),
             }}
           />
         </Sheet>
       );
     },
   ],
-} satisfies Meta<typeof SnackbarSuccess>;
+} satisfies Meta<typeof SnackbarError>;
 
 export default meta;
 
@@ -57,6 +57,7 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {
     open: true,
+    children: "",
   },
 };
 

@@ -69,7 +69,8 @@
         "normal": "Não tem conta ?"
       },
       "Snackbar": {
-        "success": "Mensagem de sucesso"
+        "success": "Formulário enviado com sucesso !",
+        "Error": "Error ao enviar o formulário"
       }
     }
   }

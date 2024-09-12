@@ -68,7 +68,9 @@
         "normal": "Don't have an account?"
       },
       "Snackbar": {
-        "success": "Success message"
+        "success": "Form sent successfully!",
+        "Soft": "",
+        "Error": "Error submitting form"
       }
     }
   }

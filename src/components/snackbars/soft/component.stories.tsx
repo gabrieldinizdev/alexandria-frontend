@@ -11,19 +11,22 @@ import { expect, fireEvent, waitFor, within } from "@storybook/test";
 
 import { ButtonSolid } from "@/components/buttons";
 
-import { SnackbarSuccess } from "./component";
+import { SnackbarSoft } from "./component";
 
 const meta = {
-  title: "Snackbar/Success",
-  component: SnackbarSuccess,
+  title: "Snackbar/Soft",
+  component: SnackbarSoft,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {},
+  args: {
+    children: "Mensagem de exemplo",
+  },
+
   decorators: [
     (Story, { args }) => {
-      const t = useTranslations("Storybook.Typography.Snackbar");
       const [open, setOpen] = useState(false);
 
       return (
@@ -41,14 +44,13 @@ const meta = {
             args={{
               ...args,
               open,
-              children: t("success"),
             }}
           />
         </Sheet>
       );
     },
   ],
-} satisfies Meta<typeof SnackbarSuccess>;
+} satisfies Meta<typeof SnackbarSoft>;
 
 export default meta;
 
