@@ -20,7 +20,7 @@
     "ForgotPassword": {
       "forgotPassword": "Forgot your password ?",
       "subtitlePage_01": "Type your email, we will send a verification code via email",
-      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password.",   
+      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password.",
       "sendEmail": "Send E-mail"
     }
   },
@@ -51,6 +51,9 @@
     "Typography": {
       "Link": {
         "normal": "To infinity and beyond"
+      },
+      "Snackbar": {
+        "success": "Success message"
       }
     }
   }
