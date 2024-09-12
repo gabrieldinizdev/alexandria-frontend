@@ -1,25 +1,54 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import { useTranslations } from "next-intl";
 
 import { Sheet } from "@mui/joy";
 
 import { useArgs } from "@storybook/preview-api";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fireEvent, within } from "@storybook/test";
+import { expect, fireEvent, waitFor, within } from "@storybook/test";
 
 import { ButtonSolid } from "@/components/buttons";
 
 import { SnackbarSuccess } from "./component";
 
 const meta = {
-  title: "Snackar/success",
+  title: "Snackbar/Success",
   component: SnackbarSuccess,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {},
+  decorators: [
+    (Story, { args }) => {
+      const t = useTranslations("Storybook.Typography.Snackbar");
+      const [open, setOpen] = useState(false);
+
+      return (
+        <Sheet variant="outlined" sx={{ p: 4 }}>
+          <ButtonSolid
+            sx={{ minWidth: "200px" }}
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
+            {open ? "Fechar" : "Abrir"}
+          </ButtonSolid>
+
+          <Story
+            args={{
+              ...args,
+              open,
+              children: t("success"),
+            }}
+          />
+        </Sheet>
+      );
+    },
+  ],
 } satisfies Meta<typeof SnackbarSuccess>;
 
 export default meta;
@@ -28,67 +57,49 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
   args: {
-    children: "Example text",
     open: true,
   },
 };
 
-export const withToggle: Story = {
+export const WithToggle: Story = {
   args: {
-    children: "Example text",
-    open: true,
+    ...Normal.args,
+    open: false,
   },
-
-  decorators: [
-    (Story, { args }) => {
-      let [{ open }, updateArgs, resetArgs] = useArgs();
-
-      useEffect(() => {
-        resetArgs();
-      }, []);
-
-      console.log("open apos resetar", open);
-      return (
-        <Sheet variant="outlined" sx={{ maxWidth: "200px", p: 4 }}>
-          <ButtonSolid
-            onClick={() => {
-              updateArgs({ open: !open });
-            }}
-            data-testid="retry"
-          >
-            Switch Snackbar
-          </ButtonSolid>
-          <Story {...args} />
-        </Sheet>
-      );
-    },
-  ],
 
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    const snackbar = canvas.getByRole<HTMLInputElement>("presentation");
+    const button = canvas.getByRole<HTMLButtonElement>("button");
 
-    const button = canvas.getByTestId<HTMLButtonElement>("retry");
-
-    await step("expects for the snackbar to be visible", async () => {
-      await expect(snackbar).toBeInTheDocument();
-    });
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    await step("Click on button", async () => {
+    await step("Click on button for show the snackbar", async () => {
       await fireEvent.click(button);
     });
 
-    await step("expects for the snackbar to be hidden", async () => {
-      await !expect(snackbar).toBeInTheDocument();
+    await step("Expects for the snackbar to be visible", async () => {
+      const snackbar = canvas.getByRole<HTMLDivElement>("presentation");
+
+      await waitFor(
+        async () => {
+          await expect(snackbar).toBeInTheDocument();
+        },
+        { timeout: 1000 }
+      );
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    await step("Click on button", async () => {
+    await step("Click on button for hide the snackbar", async () => {
       await fireEvent.click(button);
+    });
+
+    await step("Expects for the snackbar to be hidden", async () => {
+      const snackbar = canvas.getByRole<HTMLDivElement>("presentation");
+
+      await waitFor(
+        async () => {
+          await expect(snackbar).not.toBeInTheDocument();
+        },
+        { timeout: 1000 }
+      );
     });
   },
 };

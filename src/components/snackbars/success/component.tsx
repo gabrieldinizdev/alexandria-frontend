@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, type ReactNode } from "react";
+import { forwardRef } from "react";
 
 import { Check } from "@phosphor-icons/react";
 
@@ -9,10 +9,7 @@ import { IconBase } from "@/components/icons";
 import type { SnackbarBaseProps } from "../base";
 import { SnackbarSoft } from "../soft";
 
-type SnackbarSuccessProps = Readonly<{
-  children: ReactNode;
-}> &
-  SnackbarBaseProps;
+type SnackbarSuccessProps = Readonly<{}> & SnackbarBaseProps;
 
 export const SnackbarSuccess = forwardRef<HTMLDivElement, SnackbarSuccessProps>(
   ({ children, ...props }, ref) => {

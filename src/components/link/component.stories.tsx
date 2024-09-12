@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { Sheet } from "@mui/joy";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -14,6 +16,22 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {},
+  decorators: [
+    (Story, { args }) => {
+      const t = useTranslations("Storybook.Typography.Link");
+
+      return (
+        <Sheet variant="outlined" sx={{ p: 4 }}>
+          <Story
+            args={{
+              ...args,
+              children: t("normal"),
+            }}
+          />
+        </Sheet>
+      );
+    },
+  ],
 } satisfies Meta<typeof Link>;
 
 export default meta;
@@ -23,16 +41,5 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {
     href: "https://www.google.com.br",
-    children: "Example link",
   },
-
-  decorators: [
-    (Story) => {
-      return (
-        <Sheet variant="outlined" sx={{ maxWidth: "200px", p: 4 }}>
-          <Story />
-        </Sheet>
-      );
-    },
-  ],
 };

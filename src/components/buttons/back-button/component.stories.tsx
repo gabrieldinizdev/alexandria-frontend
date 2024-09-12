@@ -1,6 +1,7 @@
+import { CaretLeft } from "@phosphor-icons/react";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, fireEvent, fn, within } from "@storybook/test";
-import { CaretLeft } from "@phosphor-icons/react";
+
 import { ButtonBack } from "./component";
 
 const onClickSpied = fn();
