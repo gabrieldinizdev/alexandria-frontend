@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fireEvent, fn, within } from "@storybook/test";
+
+import SignInPage from "@/app/(auth)/auth/sign-in/page";
 
 import { CardAuth } from "./component";
 
@@ -19,5 +20,11 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {
     children: "Auth Card",
+  },
+};
+
+export const WithSignIn: Story = {
+  args: {
+    children: <SignInPage />,
   },
 };
