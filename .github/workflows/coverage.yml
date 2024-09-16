@@ -16,7 +16,11 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
-       
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Clean cache
+        run: npm cache clear --force
 
       - name: Install dependencies
         run: npm ci
