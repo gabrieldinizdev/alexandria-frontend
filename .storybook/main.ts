@@ -26,10 +26,14 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-onboarding",
     "@storybook/addon-themes",
+    "storybook-next-intl",
   ],
   framework: {
     name: "@storybook/nextjs",
     options: {},
+  },
+  features: {
+    experimentalRSC: true,
   },
   staticDirs: ["../public"],
   typescript: {

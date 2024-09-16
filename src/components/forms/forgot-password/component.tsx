@@ -55,7 +55,7 @@ export function FormForgotPassword() {
 
   return (
     <Stack
-      className="LoginForm"
+      className="Logrm"
       component="form"
       gap={5}
       width="100%"

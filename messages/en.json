@@ -20,7 +20,7 @@
     "ForgotPassword": {
       "forgotPassword": "Forgot your password ?",
       "subtitlePage_01": "Type your email, we will send a verification code via email",
-      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password.",   
+      "emailSentSuccessfully": "We have sent you an email with instructions for resetting your password.",
       "sendEmail": "Send E-mail"
     }
   },
@@ -44,6 +44,34 @@
       "title": "Oops... we got lost on the way !",
       "subtitle": "Page not found",
       "description": "The page you are looking for does not exist."
+    }
+  },
+
+  "Storybook": {
+    "Typography": {
+      "Link": {
+        "normal": "To infinity and beyond"
+      },
+      "Subtitle": {
+        "normal": "Enter your email and create your password"
+      },
+      "Title": {
+        "normal": "Forgot your password ?"
+      },
+      "Paragraph": {
+        "normal": "Product title"
+      },
+      "Info": {
+        "normal": "Hello visitor"
+      },
+      "Small": {
+        "normal": "Don't have an account?"
+      },
+      "Snackbar": {
+        "success": "Form sent successfully!",
+        "Soft": "",
+        "Error": "Error submitting form"
+      }
     }
   }
 }

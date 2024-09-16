@@ -4,7 +4,11 @@ import { useState, type ReactNode } from "react";
 
 import { useServerInsertedHTML } from "next/navigation";
 
-import { CssBaseline, CssVarsProvider, GlobalStyles } from "@mui/joy";
+import {
+  CssBaseline,
+  CssVarsProvider as CssVarsProviderJoy,
+  GlobalStyles as GlobalStylesJoy,
+} from "@mui/joy";
 
 import createCache, { Options } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
@@ -17,6 +21,44 @@ type ThemeRegistryProps = Readonly<{
   options: Options;
   children: ReactNode;
 }>;
+
+type CssVarsProviderProps = Readonly<{
+  children: ReactNode;
+}>;
+
+export const GlobalStyles = () => (
+  <GlobalStylesJoy
+    styles={{
+      ".ph-icon-react": {
+        color: "var(--Icon-color)",
+        margin: "var(--Icon-margin)",
+      },
+
+      "html, body": {
+        minHeight: "100vh",
+        minWidth: "100vw",
+        overflowX: "hidden",
+        overflowY: "auto",
+        margin: 0,
+        padding: 0,
+      },
+
+      "*, *::before, *::after": {
+        boxSizing: "border-box",
+      },
+    }}
+  />
+);
+
+export const CssVarsProvider = ({ children }: CssVarsProviderProps) => (
+  <CssVarsProviderJoy theme={SkyTheme} defaultMode="light">
+    <GlobalStyles />
+
+    <CssBaseline />
+
+    {children}
+  </CssVarsProviderJoy>
+);
 
 export function ThemeRegistry(props: ThemeRegistryProps) {
   const { options, children } = props;
@@ -63,33 +105,7 @@ export function ThemeRegistry(props: ThemeRegistryProps) {
 
   return (
     <CacheProvider value={cache}>
-      <CssVarsProvider theme={SkyTheme} defaultMode="light">
-        <GlobalStyles
-          styles={{
-            ".ph-icon-react": {
-              color: "var(--Icon-color)",
-              margin: "var(--Icon-margin)",
-            },
-
-            "html, body": {
-              minHeight: "100vh",
-              minWidth: "100vw",
-              overflowX: "hidden",
-              overflowY: "auto",
-              margin: 0,
-              padding: 0,
-            },
-
-            "*, *::before, *::after": {
-              boxSizing: "border-box",
-            },
-          }}
-        />
-
-        <CssBaseline />
-
-        {children}
-      </CssVarsProvider>
+      <CssVarsProvider>{children}</CssVarsProvider>
     </CacheProvider>
   );
 }
